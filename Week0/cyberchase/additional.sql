@@ -14,3 +14,4 @@ strftime('%Y', "air_date") AS "year",
 MIN(strftime('%m-%d', "air_date")) AS "earliest date"
 FROM "episodes"
 GROUP BY strftime('%Y', "air_date");
+`
