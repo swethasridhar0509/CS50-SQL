@@ -7,4 +7,7 @@ This repository contains my solutions to the **CS50's Introduction to Databases 
 - Normals    - [Questions](https://cs50.harvard.edu/sql/2024/psets/0/normals/) | [Solution](https://github.com/swethasridhar0509/CS50-SQL/tree/main/Week0/normals)
 - Players    - [Questions](https://cs50.harvard.edu/sql/2024/psets/0/players/) | [Solution](https://github.com/swethasridhar0509/CS50-SQL/tree/main/Week0/players)
 
+## Week - 1
+- Packages - [Questions](https://cs50.harvard.edu/sql/2024/psets/1/packages/) | [Solution](https://github.com/swethasridhar0509/CS50-SQL/tree/main/Week1/packages)
+
 
