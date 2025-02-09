@@ -1,27 +1,7 @@
 
 -- *** The Lost Letter ***
 
---To find the sender Address ID from the addresses table.
-SELECT "id"
-FROM "addresses"
-WHERE "address" = '900 Somerville Avenue'; -- 432
-
---To find the package id using the sender address id and contents from the package table.
-SELECT "id"
-FROM "packages"
-WHERE "from_address_id" = 432
-AND "contents" LIKE '%Congratulatory%letter%'; --384
-
---To find the to address id using the package id and the action from the scans table.
-SELECT "address_id"
-FROM "scans"
-WHERE "package_id" = 384
-AND "action" = 'Drop'; --854
-
---To find the type and address of the to address using the id from the scans tables.
-SELECT "address", "type"
-FROM "addresses"
-WHERE "id" = 854; --Residential --2 Finnigan Street
+--To find the address and its type.
 
 SELECT "address", "type"
 FROM "addresses"
@@ -39,10 +19,73 @@ WHERE "id" = (
         AND "contents" LIKE '%Congratulatory%letter%'
     )
     AND "action" = 'Drop'
-);
-
+); --2 Finnigan Street --Residential
 
 -- *** The Devious Delivery ***
 
+--To find the contents of the Devious Delivery
+
+SELECT "contents"
+FROM "packages"
+WHERE "from_address_id" IS NULL; --Duck debugger
+
+--To find the type of address the Devious Delivery end up
+
+SELECT "type"
+FROM "addresses"
+WHERE "id" = (
+    SELECT "address_id"
+    FROM "scans"
+    WHERE "package_id" = (
+        SELECT "id"
+        FROM "packages"
+        WHERE "from_address_id" IS NULL
+    )
+    ORDER BY "timestamp" DESC
+    LIMIT 1
+); --Police Station
+
 -- *** The Forgotten Gift ***
+
+--To find the content of the forgotten gift.
+
+SELECT "contents"
+FROM "packages"
+WHERE "from_address_id" = (
+    SELECT "id"
+    FROM "addresses"
+    WHERE address = '109 Tileston Street'
+)
+AND "to_address_id" = (
+    SELECT "id"
+    FROM "addresses"
+    WHERE address = '728 Maple Place'
+); --Flowers
+
+--To find who has the package now
+
+SELECT "name"
+FROM "drivers"
+WHERE "id" = (
+    SELECT "driver_id"
+    FROM "scans"
+    WHERE "package_id" = (
+        SELECT "id"
+        FROM "packages"
+        WHERE "from_address_id" = (
+            SELECT "id"
+            FROM "addresses"
+            WHERE address = '109 Tileston Street'
+        )
+        AND "to_address_id" = (
+            SELECT "id"
+            FROM "addresses"
+            WHERE address = '728 Maple Place'
+        )
+    )
+    ORDER BY "timestamp" DESC
+    LIMIT 1
+); 
+
+--Mikel
 
