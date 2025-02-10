@@ -10,5 +10,5 @@ This repository contains my solutions to the **CS50's Introduction to Databases 
 ## Week - 1
 - Packages - [Questions](https://cs50.harvard.edu/sql/2024/psets/1/packages/) | [Solution](https://github.com/swethasridhar0509/CS50-SQL/tree/main/Week1/packages)
 - Dese - [Questions](https://cs50.harvard.edu/sql/2024/psets/1/dese/) | [Solution](https://github.com/swethasridhar0509/CS50-SQL/tree/main/Week1/dese)
-
+- MoneyBall - [Questions](https://cs50.harvard.edu/sql/2024/psets/1/moneyball/) | [Solution](https://github.com/swethasridhar0509/CS50-SQL/tree/main/Week1/moneyball)
 
