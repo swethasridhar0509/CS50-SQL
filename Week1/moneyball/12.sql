@@ -10,7 +10,7 @@ FROM (
         JOIN "performances" "perf" ON "perf"."player_id" = "p"."id"
         JOIN "salaries" "s" ON "s"."player_id" = "p"."id" AND "s"."year" = "perf"."year"
         WHERE "perf"."year" = 2001 AND "perf"."H" > 0
-        ORDER BY ("s"."salary" / "perf"."H") ASC, "p"."id" ASC
+        ORDER BY ("s"."salary" / "perf"."H") ASC
         LIMIT 10
         )
 
@@ -26,7 +26,8 @@ FROM (
         JOIN "performances" "perf" ON "perf"."player_id" = "p"."id"
         JOIN "salaries" "s" ON "s"."player_id" = "p"."id" AND "s"."year" = "perf"."year"
         WHERE "perf"."year" = 2001 AND "perf"."RBI" > 0
-        ORDER BY ("s"."salary" / "perf"."RBI") ASC, "p"."id" ASC
+        ORDER BY ("s"."salary" / "perf"."RBI") ASC
         LIMIT 10
         )
+ORDER BY "id"
 );
